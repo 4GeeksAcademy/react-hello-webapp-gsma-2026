@@ -1,16 +1,35 @@
-import rigoImageUrl from "../assets/img/rigo-baby.jpg";
-import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
+import React, { useEffect } from "react";
+import useGlobalReducer from "../hooks/useGlobalReducer";
+import { actions } from "../store";
+import { Card } from "../components/Card";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
+  const { store, dispatch } = useGlobalReducer();
 
-  const {store, dispatch} =useGlobalReducer()
+  useEffect(() => {
+    actions.getContacts(dispatch);
+  }, []);
 
-	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!!</h1>
-			<p>
-				<img src={rigoImageUrl} />
-			</p>
-		</div>
-	);
-}; 
+  return (
+    <div className="container" style={{ maxWidth: "900px" }}>
+
+      {/* BOTÓN */}
+      <div className="d-flex justify-content-end my-4">
+        <Link to="/demo">
+          <button className="btn btn-success">
+            Add new contact
+          </button>
+        </Link>
+      </div>
+
+      {/* LISTA */}
+      <div className="border rounded bg-white p-3">
+        {store.contacts.map((contact) => (
+          <Card key={contact.id} contact={contact} />
+        ))}
+      </div>
+
+    </div>
+  );
+};
