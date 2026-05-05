@@ -14,10 +14,8 @@ export const router = createBrowserRouter(
 
       <Route index element={<Home />} />
 
-      {/* CREAR */}
       <Route path="/demo" element={<Demo />} />
 
-      {/* EDITAR */}
       <Route path="/demo/:id" element={<Demo />} />
 
     </Route>

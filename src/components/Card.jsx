@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useGlobalReducer from "../hooks/useGlobalReducer";
 import { actions } from "../store";
 import { useNavigate } from "react-router-dom";
+import rigoImage from "../assets/img/rigo-baby.jpg";
 
 export const Card = ({ contact }) => {
   const { dispatch } = useGlobalReducer();
@@ -13,14 +14,12 @@ export const Card = ({ contact }) => {
     <>
       <div className="d-flex align-items-center border-bottom py-3">
 
-        {/* FOTO */}
-        <img
-          src="https://randomuser.me/api/portraits/men/1.jpg"
-          className="rounded-circle me-4"
-          style={{ width: "80px", height: "80px" }}
-        />
+<img
+  src={rigoImage}
+  className="contact-img"
+/>
 
-        {/* INFO */}
+       
         <div className="flex-grow-1">
           <h5>{contact.name}</h5>
 
@@ -40,7 +39,7 @@ export const Card = ({ contact }) => {
           </p>
         </div>
 
-        {/* ICONOS */}
+     
         <div className="d-flex gap-3">
           <i
             className="fas fa-pencil-alt"
@@ -56,7 +55,6 @@ export const Card = ({ contact }) => {
         </div>
       </div>
 
-      {/* MODAL */}
       {showModal && (
         <div className="modal fade show d-block" tabIndex="-1">
           <div className="modal-dialog">
@@ -73,26 +71,26 @@ export const Card = ({ contact }) => {
 
               <div className="modal-body">
                 <p>
-                  If you delete this contact the entire universe will go down!
+                  ¿Seguro que quieres eliminar este contacto?
                 </p>
               </div>
 
               <div className="modal-footer">
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-danger"
                   onClick={() => setShowModal(false)}
                 >
-                  Oh no!
+                  No!
                 </button>
 
                 <button
-                  className="btn btn-secondary"
+                  className="btn btn-success"
                   onClick={() => {
                     actions.deleteContact(dispatch, contact.id);
                     setShowModal(false);
                   }}
                 >
-                  Yes baby!
+                  Si
                 </button>
               </div>
 

@@ -1,11 +1,11 @@
 const API_URL = "https://playground.4geeks.com/contact/agendas/genesis";
 
-// 🔹 Estado inicial
+
 export const initialStore = () => ({
   contacts: []
 });
 
-// 🔹 Reducer
+
 export default function storeReducer(store, action = {}) {
   switch (action.type) {
     case "SET_CONTACTS":
@@ -15,7 +15,6 @@ export default function storeReducer(store, action = {}) {
   }
 }
 
-// 🔹 Acciones
 export const actions = {
   getContacts: async (dispatch) => {
     try {

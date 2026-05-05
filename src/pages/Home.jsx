@@ -12,9 +12,9 @@ export const Home = () => {
   }, []);
 
   return (
-    <div className="container" style={{ maxWidth: "900px" }}>
+    <div className="container main-container">
 
-      {/* BOTÓN */}
+   
       <div className="d-flex justify-content-end my-4">
         <Link to="/demo">
           <button className="btn btn-success">
@@ -23,7 +23,7 @@ export const Home = () => {
         </Link>
       </div>
 
-      {/* LISTA */}
+    
       <div className="border rounded bg-white p-3">
         {store.contacts.map((contact) => (
           <Card key={contact.id} contact={contact} />
