@@ -36,7 +36,7 @@ export const Demo = () => {
   };
 
   return (
-    <div className="container mt-5" style={{ maxWidth: "800px" }}>
+    <div className="container mt-5 form-container">
 
       <h1 className="text-center mb-4">
         {id ? "Edit contact" : "Add a new contact"}
@@ -67,7 +67,9 @@ export const Demo = () => {
       </button>
 
       <div>
-        <span style={{ cursor: "pointer", color: "blue" }} onClick={() => navigate("/")}>
+        <span
+          className="back-link"
+          onClick={() => navigate("/")}>
           or get back to contacts
         </span>
       </div>

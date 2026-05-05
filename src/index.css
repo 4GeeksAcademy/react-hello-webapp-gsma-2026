@@ -18,3 +18,17 @@
 .main-container {
   max-width: 900px;
 }
+
+.form-container {
+  max-width: 800px;
+} 
+
+.back-link {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+.back-link:hover {
+  color: #0d6efd; /* azul bootstrap */
+}
